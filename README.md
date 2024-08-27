@@ -1,39 +1,84 @@
+Here's the corrected and cleaned-up version of your README file:
+
+markdown
+Copy code
 # FatsecretLite
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fatsecret_lite`. To experiment with that code, run `bin/console` for an interactive prompt.
+`fatsecret_lite` is a Ruby gem for interacting with the FatSecret API. It provides an easy way to retrieve food details using OAuth2 authentication. The gem is available at: [https://rubygems.org/gems/fatsecret_lite](https://rubygems.org/gems/fatsecret_lite).
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'fatsecret_lite'
+And then execute:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bash
+Copy code
+bundle install
+Or install it yourself as:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+bash
+Copy code
+gem install fatsecret_lite
+Usage
+Configuration
+Before using the gem, you need to configure it with your FatSecret API credentials. You can do this in an initializer or before making any API calls.
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Example configuration:
 
-## Usage
+ruby
+Copy code
+FatsecretLite.configure do |config|
+  config.client_id = 'your_client_id'
+  config.client_secret = 'your_client_secret'
+end
+Replace 'your_client_id' and 'your_client_secret' with your actual FatSecret API credentials.
 
-TODO: Write usage instructions here
+Fetching Food Details
+To fetch food details by food ID, use the get_food_details method:
 
-## Development
+ruby
+Copy code
+food_details = FatsecretLite.get_food_details(12345)
+puts food_details
+This will return the details for the food item with the specified ID in a JSON format.
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Development
+After checking out the repo, run bin/setup to install dependencies. You can also run bin/console for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run:
 
-## Contributing
+bash
+Copy code
+bundle exec rake install
+To release a new version, update the version number in lib/fatsecret_lite/version.rb, and then run:
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fatsecret_lite. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/fatsecret_lite/blob/master/CODE_OF_CONDUCT.md).
+bash
+Copy code
+bundle exec rake release
+This will create a git tag for the version, push git commits and the created tag, and push the .gem file to rubygems.org.
 
-## License
+Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/KapilDevPal/fatsecret_lite. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
 
+License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## Code of Conduct
+Code of Conduct
+Everyone interacting in the FatsecretLite project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the code of conduct.
 
-Everyone interacting in the FatsecretLite project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/fatsecret_lite/blob/master/CODE_OF_CONDUCT.md).
+markdown
+Copy code
+
+### Key Changes:
+1. Fixed formatting and indentation issues.
+2. Added missing headings and clear sections.
+3. Corrected URLs to GitHub and Rubygems links.
+4. Adjusted code blocks for proper syntax highlighting.
+
+
+
+
+
