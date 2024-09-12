@@ -44,8 +44,10 @@ module FatsecretLite
       response = RestClient.post(
         'https://platform.fatsecret.com/rest/server.api',
         {
-          method: 'food.get.v2',
+          method: 'food.get.v4',
           food_id: food_id,
+          include_food_images: true,
+          include_food_attributes: true,
           format: 'json'
         },
         {
@@ -60,5 +62,53 @@ module FatsecretLite
     rescue StandardError => e
       puts "An error occurred: #{e.message}"
     end
+
+    # find food id by barcode
+    def find_food_by_barcode(barcode)
+      access_token = get_access_token
+
+      response = RestClient.post(
+        'https://platform.fatsecret.com/rest/server.api',
+        {
+          method: 'food.find_id_for_barcode',
+          barcode: barcode,
+          format: 'json'
+        },
+        {
+          content_type: :json,
+          Authorization: "Bearer #{access_token}"
+        }
+      )
+
+      JSON.parse(response.body)
+    rescue RestClient::ExceptionWithResponse => e
+      puts "Error: #{e.response}"
+    rescue StandardError => e
+      puts "An error occurred: #{e.message}"
+    end
+
+    def find_food_by_search(search_value, max_results= 10)
+        access_token = get_access_token
+
+        response = RestClient.post(
+          'https://platform.fatsecret.com/rest/server.api',
+          {
+            method: 'foods.search.v3',
+            max_results: max_results,
+            search_expression: search_value,
+            format: 'json'
+          },
+          {
+            content_type: :json,
+            Authorization: "Bearer #{access_token}"
+          }
+        )
+
+        JSON.parse(response.body)
+      rescue RestClient::ExceptionWithResponse => e
+        puts "Error: #{e.response}"
+      rescue StandardError => e
+        puts "An error occurred: #{e.message}"
+      end
   end
 end

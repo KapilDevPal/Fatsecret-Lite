@@ -10,12 +10,12 @@ Gem::Specification.new do |spec|
 
   spec.summary     = "A lightweight Ruby gem for interacting with the FatSecret API"
   spec.description = "This gem provides a simple interface to interact with the FatSecret API using OAuth2 and RestClient."
-  spec.homepage    = "https://github.com/KapilDevPal/fatsecret_lite"
+  # spec.homepage    = "https://github.com/KapilDevPal/fatsecret_lite"
   spec.license     = "MIT"
-  spec.required_ruby_version = ">= 2.5" # Define minimum Ruby version
+  spec.required_ruby_version = ">= 2.5"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
-  spec.metadata["homepage_uri"] = spec.homepage
+  # spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/KapilDevPal/fatsecret_lite"
   spec.metadata["changelog_uri"] = "https://github.com/KapilDevPal/fatsecret_lite/CHANGELOG.md"
 
@@ -31,6 +31,14 @@ Gem::Specification.new do |spec|
   spec.add_dependency "oauth2", "~> 1.4"
   spec.add_dependency "rest-client", "~> 2.1"
   spec.add_dependency "json"
+
+  # Post-installation message
+  spec.post_install_message = <<-MESSAGE
+  Thank you for installing the FatSecret Lite gem!
+  Hey! My name is Kapil Dev Pal incase if haveing any issue installing this gem please:
+  contact me @email: dev.KapilDev@gmail.com
+  Happy coding!
+  MESSAGE
 
   # No executable files to include
   spec.bindir        = "bin"
